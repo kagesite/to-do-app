@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <div class="outer">
+        <nav class="navbar">
+            <h1>To Do App</h1>
+        </nav>
+        <div class="container">
+            <div class="col-left">
+                <p class="title">Your Lists</p>
+                <input type="text" id="mainListsInput" placeholder="New List Name">
+                <button class="create-button" id="createNewListBtn">Create New List</button>
+                <ul class="main-list">
+                    <li class="main-list-item">List 1</li>
+                    <li class="main-list-item">List 2</li>
+                    <li class="main-list-item">List 3</li>
+                </ul>
+            </div>
+            <div class="col-right">
+                <p class="title">List Name</p>
+                <input type="text" placeholder="Enter task">
+                <button class="add-button" id="addSubListTaskBtn">Add</button>
+                <ul class="sub-list">
+                    <li class="sub-list-item">Task 1</li>
+                    <li class="sub-list-item">Task 2</li>
+                    <li class="sub-list-item">Task 3</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

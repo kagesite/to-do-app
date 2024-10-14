@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+
+* {
+    font-family: 'Afacad Flux', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    font-size: 18px;
+    padding: 2px 6px;
+    margin-bottom: 24px;
+    margin-right: 12px;
+    border-radius: 8px;
+    border: 2px solid gray;
+}
+
+.create-button, .add-button {
+    font-size: 18px;
+    padding: 2px 6px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    border: 2px solid gray;
+    background-color: white;
+}
+
+.navbar {
+    background-color: rgb(45, 112, 238);
+    color: white;
+    padding: 0 20px;
+}
+.navbar h1 {
+    font-size: 48px;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.col-left {
+    flex: 3;
+    /* background-color: lightgray; */
+    padding: 20px;
+    border-right: 5px solid black;
+}
+
+.main-list-item {
+    background-color: white;
+    font-size: 24px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    border: 2px solid grey;
+}
+
+.col-right {
+    flex: 8;
+    background: rgb(202, 201, 201);
+    padding: 20px;
+}

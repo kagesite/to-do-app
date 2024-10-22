@@ -7,6 +7,8 @@ function saveToLocalStorage() {
     localStorage.setItem('mainLists', JSON.stringify(mainLists));
 }
 
+// START OF MAIN LIST FUNCTIONS
+
 // Create a function to add list to mainLists;
 function addMainList() {
     const mainListName = document.getElementById('mainListInput').value;
@@ -36,7 +38,7 @@ function displayMainLists() {
         mainListName.textContent = mainList.name;
         mainListName.onclick = () => {
             selectedListIndex = mainIndex;
-            // showSubTasksContainer(mainIndex)
+            showSubTasksContainer(mainIndex)
         }
 
         const deleteButton = document.createElement('button');
@@ -52,10 +54,47 @@ function displayMainLists() {
 function deleteMainList(mainIndex) {
     if (confirm(`Are you sure you want to delete '${mainLists[mainIndex].name}' ?`)) {
         mainLists.splice(mainIndex, 1);
-
+        if (mainIndex === selectedListIndex) {
+            selectedListIndex = null;
+        }
         saveToLocalStorage();
         displayMainLists();
     }
 }
+
+
+// END OF MAIN LIST FUNCTIONS
+
+
+
+
+// START OF SUB TASK FUNCTIONS
+function showSubTasksContainer(mainIndex) {
+    const taskContainerElement = document.getElementById('taskContainer');
+    taskContainerElement.classList.remove('hidden');
+
+    const selectedListName = document.getElementById("selectedListName");
+    selectedListName.textContent = mainLists[mainIndex].name;
+
+    // displaySubTasks(mainIndex);
+}
+
+// Create a function to add the subtasks
+function addSubTask() {
+    const subTaskInput = document.getElementById("subTaskInput").value;
+
+    if (subTaskInput) {
+        mainLists[selectedListIndex].subTasks.push({
+            name: subTaskInput,
+            completed: false
+        })
+
+        document.getElementById("subTaskInput").value = '';
+        saveToLocalStorage();
+        displaySubTasks(selectedListIndex);
+    }
+}
+
+
 
 // localStorage.clear()

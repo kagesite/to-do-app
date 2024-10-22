@@ -10,6 +10,11 @@ function saveToLocalStorage() {
 // START OF MAIN LIST FUNCTIONS
 
 // Create a function to add list to mainLists;
+// addMainList() creates a newList object that takes a name, and a subTasks array.
+// The name Key will hold the mainListName which is the #mainListInput.value;
+// The subTasks Key will take an empty array as the value for now. 
+// (addSubTasks() function will push a name & completed Key to this array for each taskItem).
+
 function addMainList() {
     const mainListName = document.getElementById('mainListInput').value;
 
@@ -26,7 +31,7 @@ function addMainList() {
     }
 }
 
-// Create a function to display the main list(s)
+// displayMainLists() function dispalys the mainList items to the window.
 function displayMainLists() {
     const mainListElement = document.getElementById('mainLists');
     mainListElement.innerHTML = '';
@@ -51,6 +56,7 @@ function displayMainLists() {
     })
 }
 
+// This function deletes a mainList and updates both the localStorage & the display
 function deleteMainList(mainIndex) {
     if (confirm(`Are you sure you want to delete '${mainLists[mainIndex].name}' ?`)) {
         mainLists.splice(mainIndex, 1);

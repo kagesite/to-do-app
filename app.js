@@ -76,7 +76,7 @@ function showSubTasksContainer(mainIndex) {
     const selectedListName = document.getElementById("selectedListName");
     selectedListName.textContent = mainLists[mainIndex].name;
 
-    // displaySubTasks(mainIndex);
+    displaySubTasks(mainIndex);
 }
 
 // Create a function to add the subtasks
@@ -93,6 +93,50 @@ function addSubTask() {
         saveToLocalStorage();
         displaySubTasks(selectedListIndex);
     }
+}
+
+// Create a function to display the subTasks to the subTask List
+function displaySubTasks(mainIndex) {
+    const subTaskListElement = document.getElementById("subTaskList");
+    subTaskListElement.innerHTML = '';
+
+    mainLists[mainIndex].subTasks.forEach((subTask, taskIndex) => {
+        const subTaskItem = document.createElement('li');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = subTask.completed;
+        checkbox.onclick = () => toggleTaskCompletion(mainIndex, taskIndex);
+
+        const taskName = document.createElement('span');
+        taskName.textContent = subTask.name;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteSubTask(mainIndex, taskIndex)
+
+        subTaskItem.appendChild(checkbox)
+        subTaskItem.appendChild(taskName)
+        subTaskItem.appendChild(deleteButton)
+        subTaskListElement.appendChild(subTaskItem);
+    })
+}
+
+// Create a function to toggle the completion of a sub task
+function toggleTaskCompletion(mainIndex, taskIndex) {
+    mainLists[mainIndex].subTasks[taskIndex].completed = 
+        !mainLists[mainIndex].subTasks[taskIndex].completed;
+
+    saveToLocalStorage()
+    displaySubTasks(mainIndex);
+}
+
+// Create a function to delete a sub task
+function deleteSubTask(mainIndex, taskIndex) {
+    mainLists[mainIndex].subTasks.splice(taskIndex, 1)
+
+    saveToLocalStorage();
+    displaySubTasks(mainIndex);
 }
 
 

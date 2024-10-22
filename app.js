@@ -49,4 +49,13 @@ function displayMainLists() {
     })
 }
 
-// localStorage.clear();
+function deleteMainList(mainIndex) {
+    if (confirm(`Are you sure you want to delete '${mainLists[mainIndex].name}' ?`)) {
+        mainLists.splice(mainIndex, 1);
+
+        saveToLocalStorage();
+        displayMainLists();
+    }
+}
+
+// localStorage.clear()

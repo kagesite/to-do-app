@@ -20,8 +20,33 @@ function addMainList() {
         mainLists.push(newList)
         document.getElementById('mainListInput').value = '';
         saveToLocalStorage();
-        // displayMainLists();
+        displayMainLists();
     }
+}
+
+// Create a function to display the main list(s)
+function displayMainLists() {
+    const mainListElement = document.getElementById('mainLists');
+    mainListElement.innerHTML = '';
+
+    mainLists.forEach((mainList, mainIndex) => {
+        const mainListItem = document.createElement('li');
+        
+        const mainListName = document.createElement('span');
+        mainListName.textContent = mainList.name;
+        mainListName.onclick = () => {
+            selectedListIndex = mainIndex;
+            // showSubTasksContainer(mainIndex)
+        }
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.onclick = () => deleteMainList(mainIndex);
+
+        mainListItem.appendChild(mainListName);
+        mainListItem.appendChild(deleteButton);
+        mainListElement.appendChild(mainListItem);
+    })
 }
 
 // localStorage.clear();

@@ -146,5 +146,4 @@ function deleteSubTask(mainIndex, taskIndex) {
 }
 
 displayMainLists();
-
 // localStorage.clear()

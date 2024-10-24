@@ -28,6 +28,8 @@ function addMainList() {
         document.getElementById('mainListInput').value = '';
         saveToLocalStorage();
         displayMainLists();
+    } else {
+        alert("You need to add a list");
     }
 }
 

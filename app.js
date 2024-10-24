@@ -101,6 +101,15 @@ function addSubTask() {
     }
 }
 
+// Create a function to toggle the completion of a sub task
+function toggleTaskCompletion(mainIndex, taskIndex) {
+    mainLists[mainIndex].subTasks[taskIndex].completed = 
+        !mainLists[mainIndex].subTasks[taskIndex].completed;
+
+    saveToLocalStorage();
+    displaySubTasks(mainIndex);
+}
+
 // Create a function to display the subTasks to the subTask List
 function displaySubTasks(mainIndex) {
     const subTaskListElement = document.getElementById("subTaskList");
@@ -128,15 +137,6 @@ function displaySubTasks(mainIndex) {
     })
 }
 
-// Create a function to toggle the completion of a sub task
-function toggleTaskCompletion(mainIndex, taskIndex) {
-    mainLists[mainIndex].subTasks[taskIndex].completed = 
-        !mainLists[mainIndex].subTasks[taskIndex].completed;
-
-    saveToLocalStorage()
-    displaySubTasks(mainIndex);
-}
-
 // Create a function to delete a sub task
 function deleteSubTask(mainIndex, taskIndex) {
     mainLists[mainIndex].subTasks.splice(taskIndex, 1)
@@ -145,6 +145,6 @@ function deleteSubTask(mainIndex, taskIndex) {
     displaySubTasks(mainIndex);
 }
 
-
+displayMainLists();
 
 // localStorage.clear()

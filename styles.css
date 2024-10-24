@@ -1,3 +1,22 @@
+:root {
+    --success: #198754;
+    --light-success: #58cc96;
+}
+
 .hidden {
     display: none;
+}
+
+.add-list-btn {
+    background-color: var(--success);
+    border: none;
+    color: white;
+    border-radius: 20px;
+    padding: 1px 7px;
+    margin-left: 4px;
+    transition: 0.2s all;
+    font-size: 18px;
+}
+.add-list-btn:hover {
+    background-color: var(--light-success);
 }

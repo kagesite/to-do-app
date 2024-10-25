@@ -40,6 +40,7 @@ function displayMainLists() {
 
     mainLists.forEach((mainList, mainIndex) => {
         const mainListItem = document.createElement('li');
+        mainListItem.classList.add('main-list-item');
         
         const mainListName = document.createElement('span');
         mainListName.textContent = mainList.name;

@@ -20,3 +20,16 @@
 .add-list-btn:hover {
     background-color: var(--light-success);
 }
+
+#mainLists {
+   padding: 0;
+   margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.main-list-item {
+    background: lightpink;
+}

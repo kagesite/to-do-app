@@ -7,7 +7,7 @@
     <title>To Do App</title>
 
     <!-- ----- CSS LINKS ----- -->
-    
+
     <!-- My styles.css file -->
     <link rel="stylesheet" href="styles.css">
     <!-- Bootstrap CDN -->
@@ -19,33 +19,38 @@
 </head>
 
 <body>
-    <div>
+    <div class="header">
         <h1>To Do App</h1>
     </div>
-    <div>
-        <div>
-            <h3>Your To Do's</h3>
-            <div>
-                <input type="text" id="mainListInput">
-                <button onclick="addMainList()">Create List</button>
+    <div class="container-sm col-10 justify-content-center">
+        <div class="row border rounded-4 border-2 border-black bg-success bg-gradient p-2">
+            <div class="text-white  col-lg-5 py-4">
+                <h3>Your To Do's</h3>
+                <div class="mb-3 d-flex align-items-center">
+                    <input type="text" id="mainListInput" placeholder="Create new list">
+                    <i class="fa-regular fa-square-plus add-main-btn fs-1" onclick="addMainList()"></i>
+                </div>
+                <ul id="mainLists" class="list-group gap-1">
+                    <!-- Main List Items will go in here -->
+                </ul>
             </div>
-            <ul id="mainLists">
-                <!-- Main List Items will go in here -->
-            </ul>
+            <div id="taskContainer" class="rounded-4 bg-white hidden col-lg-7 py-4 hidden">
+                <h3 id="selectedListName"></h3>
+                <div class="mb-3 d-flex align-items-center">
+                    <input type="text" id="subTaskInput" placeholder="Enter new task">
+                    <i class="fa-regular fa-square-plus add-sub-btn fs-1" onclick="addSubTask()"></i>
+                </div>
+                <ul id="subTaskList" class="list-group p-4 sub-list" >
+                    <!-- Sub Task Items will go in here -->
+                </ul>
+            </div>
         </div>
-        <div id="taskContainer" class="hidden">
-            <h3 id="selectedListName"></h3>
-            <input type="text" id="subTaskInput">
-            <button onclick="addSubTask()">Add Task</button>
-            <ul id="subTaskList">
-                <!-- Sub Task Items will go in here -->
-            </ul>
-        </div>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>ƒ
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>

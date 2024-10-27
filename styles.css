@@ -1,3 +1,114 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.header {
+    background-color: grey;
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    color: white;
+    margin-bottom: 50px;
+}
+
 .hidden {
     display: none;
+}
+
+.add-main-btn {
+    color: white;
+    transition: 0.1s;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.add-main-btn:hover{
+    color: black;
+}
+
+ul {
+    padding: 12px 0;
+    list-style-type: none;
+}
+
+input {
+    width: 100%;
+    font-size: 20px;
+    padding: 4px;
+    border-radius: 8px;
+    border: 2px solid rgb(44, 43, 43);
+}
+
+.main-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 2px solid white;
+    border-radius: 12px;
+    transition: 0.2s all;
+    cursor: pointer;
+}
+.main-list-item:hover {
+    box-shadow: 0 0 12px 2px rgb(16, 113, 68);
+    background-color: #ccc;
+    border: 2px solid white;
+    /* color: white; */
+}
+
+.fa-trash-can {
+    font-size: 30px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.fa-trash-can:hover {
+    color: red;
+}
+
+.sub-list {
+    overflow-y: scroll;
+    max-height: 300px;
+    background-color: lightgrey;
+    border: 2px solid #333;
+}
+
+.sub-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    color: black;
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 12px;
+    transition: 0.2s all;
+}
+
+.fa-circle-check {
+    font-size: 30px;
+}
+.fa-circle-check:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.add-sub-btn {
+    color: black;
+    transition: 0.1s;
+    margin-left: 12px;
+    cursor: pointer;
+}
+.add-sub-btn:hover{
+    color: green;
 }

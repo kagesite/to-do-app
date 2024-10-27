@@ -39,17 +39,19 @@ function displayMainLists() {
     mainListElement.innerHTML = '';
 
     mainLists.forEach((mainList, mainIndex) => {
-        const mainListItem = document.createElement('li');
-        
-        const mainListName = document.createElement('span');
-        mainListName.textContent = mainList.name;
-        mainListName.onclick = () => {
+        const mainListItem = document.createElement('li')
+        mainListItem.classList.add('main-list-item');
+        mainListItem.onclick = () => {
             selectedListIndex = mainIndex;
             showSubTasksContainer(mainIndex)
         }
+        
+        const mainListName = document.createElement('span');
+        mainListName.textContent = mainList.name;
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
+
+        const deleteButton = document.createElement('i');
+        deleteButton.classList.add('fa-regular', 'fa-trash-can')
         deleteButton.onclick = () => deleteMainList(mainIndex);
 
         mainListItem.appendChild(mainListName);
@@ -119,18 +121,21 @@ function displaySubTasks(mainIndex) {
 
     mainLists[mainIndex].subTasks.forEach((subTask, taskIndex) => {
         const subTaskItem = document.createElement('li');
+        subTaskItem.classList.add('sub-list-item');
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = subTask.completed;
-        checkbox.onclick = () => toggleTaskCompletion(mainIndex, taskIndex);
+        const checkbox = document.createElement('i');
+        checkbox.innerHTML = '<i id="checkbox" class="fa-regular fa-circle-check"></i>';
+        checkbox.onclick = () => {
+            toggleTaskCompletion(mainIndex, taskIndex)
+            checkbox.classList.add('completed')
+        };
 
         const taskName = document.createElement('span');
         taskName.textContent = subTask.name;
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.onclick = () => deleteSubTask(mainIndex, taskIndex)
+        const deleteButton = document.createElement('i');
+        deleteButton.classList.add('fa-regular', 'fa-trash-can')
+        deleteButton.onclick = () => deleteSubTask(mainIndex);
 
         subTaskItem.appendChild(checkbox)
         subTaskItem.appendChild(taskName)
